@@ -1,0 +1,86 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+
+<AllExercise>
+
+    MDRelativeLayout:
+        id: image_bg_box
+        md_bg_color: get_color_from_hex("#f5e4ce")
+        size_hint_y: .45
+        pos_hint: {"top": 1}
+        radius: 0, 0, 30, 30
+
+        Image:
+            source: "assets/images/undraw_pilates_gpdb.png"
+            size_hint: None, None
+            size: self.parent.width - dp(72), self.parent.height - dp(50)
+            allow_stretch: True
+            keep_ration: False
+            x: -dp(20)
+            y: dp(40)
+            color_normal: 1, 1, 1, 1
+            size_hint_y: None
+            -height: "34dp"
+
+    MDLabel:
+        text: "Good Day"
+        font_name: "assets/fonts/Cairo/Cairo-Black.ttf"
+        bold: True
+        font_style: "H4"
+        font_size: "30sp"
+        theme_text_color: "Custom"
+        text_color: get_color_from_hex("#363445")
+        pos_hint: {"center_y": .86}
+        x: "24dp"
+
+    MDTextField:
+        icon_left: "magnify"
+        hint_text: "Search"
+        size_hint_x: None
+        width: root.width - cards_box.padding[0] * 2
+        pos_hint: {"center_x": .5}
+        y: cards_box.height
+        normal_color: 1, 1, 1, 1
+
+    MDBoxLayout:
+        size_hint: None, None
+        size: "56dp", "56dp"
+        md_bg_color: get_color_from_hex("#f6d9c3")
+        radius: self.width / 2
+        x: root.width - self.width /2
+        y: image_bg_box.y + self.height
+
+    MDRelativeLayout:
+        size_hint: None, None
+        size: "56dp", "56dp"
+        md_bg_color: get_color_from_hex("#c4aca1")
+        radius: self.width / 2
+        x: root.width - self.width - self.width /2
+        y: root.height - (self.height + self.height / 2)
+
+        Image:
+            source: "assets/icons/menu.png"
+            size_hint: None, None
+            size: "56dp", "56dp"
+
+    MDGridLayout:
+        id: cards_box
+        cols: 2
+        rows: 2
+        spacing: "18dp"
+        padding: "36dp"
+        size_hint_y: None
+        height: root.height / 1.8
+
+
+        Card:
+            source: "assets/icons/overhead_press.png"
+            text: "Overhead Press"
+        Card:
+            source: "assets/icons/arm_raise.png"
+            text: "Arm Raise"
+        Card:
+            source: "assets/icons/basic_curls.png"
+            text: "Basic Curls"
+        Card:
+            source: "assets/icons/fly.png"
+            text: "Fly"

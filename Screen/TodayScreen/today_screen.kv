@@ -1,0 +1,65 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+
+
+<TodayScreen>
+
+    MDRelativeLayout:
+        id: image_bg_box
+        md_bg_color: get_color_from_hex("#e7c7ff")
+        size_hint_y: .45
+        pos_hint: {"top": 1}
+        radius: 0, 0, 30, 30
+
+        Image:
+            source: "assets/images/undraw_pilates_gpdb.png"
+            size_hint: None, None
+            size: self.parent.width - dp(72), self.parent.height - dp(50)
+            allow_stretch: True
+            keep_ration: False
+            x: -dp(20)
+            y: dp(40)
+
+        Image:
+            source: "assets/icons/woman.png"
+            size_hint: None, None
+            size: self.parent.width - dp(72), self.parent.height - dp(71)
+            x: root.width - self.width + dp(3)
+            y: -dp(2)
+
+    MDBoxLayout:
+        orientation: "vertical"
+        adaptive_height: True
+        spacing: "30dp"
+        pos_hint: {"center_y": .86}
+        x: "24dp"
+
+
+        MDLabel:
+            text: "Stretch"
+            font_name: "assets/fonts/Cairo/Cairo-Black.ttf"
+            bold: True
+            adaptive_height: True
+            font_style: "H4"
+            font_size: "30sp"
+            theme_text_color: "Custom"
+            text_color: get_color_from_hex("#363445")
+
+
+
+        MDLabel:
+            text: "3-10 minutes stretching"
+            font_name: "assets/fonts/Cairo/Cairo-Black.ttf"
+            bold: True
+            adaptive_height: True
+            font_style: "H4"
+            font_size: "26sp"
+            theme_text_color: "Custom"
+            text_color: get_color_from_hex("#363445")
+
+        MDTextField:
+            icon_left: "magnify"
+            hint_text: "Search"
+            size_hint_x: None
+            pos_hint: {"center_x": .5}
+            -height: "42dp"
+            normal_color: 1, 1, 1, 1
